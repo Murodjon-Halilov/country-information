@@ -15,7 +15,7 @@ const DetailCountry = ({ mode }) => {
       .then((data) => {
         setCountry(data);
       });
-  }, []);
+  }, [countryName]);
 
   const countryInfor = {
     flag: country[0]?.flags.png,
@@ -50,42 +50,80 @@ const DetailCountry = ({ mode }) => {
         />
 
         <div className="not-df">
-            <div className="country-info-box">
-              <div>
-                <h1 className="detail-page-country-name">
-                  {countryInfor.countryName}
-                </h1>
+          <div className="country-info-box">
+            <div>
+              <h1 className="detail-page-country-name">
+                {countryInfor.countryName}
+              </h1>
 
-                <p className="country-information">
-                  Native Name: <span className="country-information-span">{country[0]?.name?.nativeName ? Object.values(country[0]?.name?.nativeName)[0].common : countryInfor.countryName}</span>
-                </p>
-                <p className="country-information">
-                  Population: <span className="country-information-span">{countryInfor.population}</span>
-                </p>
-                <p className="country-information">
-                  Region: <span className="country-information-span">{countryInfor.region}</span>
-                </p>
-                <p className="country-information">
-                  Sub Region: <span className="country-information-span">{countryInfor.subRegion}</span>
-                </p>
-                <p className="country-information">
-                  Capital: <span className="country-information-span">{countryInfor.capital}</span>
-                </p>
-              </div>
-
-              <div className="information-plus">
-                <p className="country-information">Top Level Domain: <span className="country-information-span">{countryInfor.domain}</span></p>
-                <p className="country-information">Currencies: <span className="country-information-span">{country[0]?.currencies ? Object.entries(country[0]?.currencies)[0][1].name : "$"}</span></p>
-                <p className="country-information">Languages: <span className="country-information-span">{country[0] ? `${Object.values(country[0].languages).join(', ')}` : "Eng"}</span></p>
-              </div>
+              <p className="country-information">
+                Native Name:{" "}
+                <span className="country-information-span">
+                  {country[0]?.name?.nativeName
+                    ? Object.values(country[0]?.name?.nativeName)[0].common
+                    : countryInfor.countryName}
+                </span>
+              </p>
+              <p className="country-information">
+                Population:{" "}
+                <span className="country-information-span">
+                  {countryInfor.population}
+                </span>
+              </p>
+              <p className="country-information">
+                Region:{" "}
+                <span className="country-information-span">
+                  {countryInfor.region}
+                </span>
+              </p>
+              <p className="country-information">
+                Sub Region:{" "}
+                <span className="country-information-span">
+                  {countryInfor.subRegion}
+                </span>
+              </p>
+              <p className="country-information">
+                Capital:{" "}
+                <span className="country-information-span">
+                  {countryInfor.capital}
+                </span>
+              </p>
             </div>
 
-            <div className="border-countries">
-              <p className="country-information">Border Countries: </p> <span className="border-country">{country[0] ? country[0]?.borders.join(', ') : 'Not Found!'}</span>
+            <div className="information-plus">
+              <p className="country-information">
+                Top Level Domain:{" "}
+                <span className="country-information-span">
+                  {countryInfor.domain}
+                </span>
+              </p>
+              <p className="country-information">
+                Currencies:{" "}
+                <span className="country-information-span">
+                  {country[0]?.currencies
+                    ? Object.entries(country[0]?.currencies)[0][1].name
+                    : "$"}
+                </span>
+              </p>
+              <p className="country-information">
+                Languages:{" "}
+                <span className="country-information-span">
+                  {country[0]
+                    ? `${Object.values(country[0].languages).join(", ")}`
+                    : "Eng"}
+                </span>
+              </p>
             </div>
+          </div>
+
+          <div className="border-countries">
+            <p className="country-information">Border Countries: </p>{" "}
+            <span className="border-country">
+              {country[0] ? country[0]?.borders.join(", ") : "Not Found!"}
+            </span>
+          </div>
         </div>
       </div>
-
     </div>
   );
 };
