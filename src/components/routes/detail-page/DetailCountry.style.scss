@@ -1,16 +1,120 @@
 .detail-page {
+  width: 100%;
+  height: 89.9vh;
+  padding: 3rem 5rem;
+  background: #fff;
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
+
+  &-flex {
     width: 100%;
-    height: 89.9vh;
-    padding: 3rem 5rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+  }
+
+  &-country-img {
+    width: 42%;
+    height: 23rem;
+    border-radius: 10px;
+  }
+
+  &-country-name {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .back-btn {
-    text-decoration: none;
-    color: #000;
-    padding: 10px 30px;
-    background: #fff;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+  text-decoration: none;
+  color: #000;
+  padding: 10px 30px;
+  background: #fff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.country-info-box {
+  width: 100%;
+  height: 25rem;
+  display: flex;
+}
+
+.country-information {
+  font-weight: 500;
+  line-height: 1.8rem;
+  font-size: 1.1rem;
+
+  &-span {
+    font-weight: lighter;
+  }
+}
+
+.information-plus {
+  margin-top: 6.6rem;
+  margin-left: 5rem;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.border-countries {
+  margin-top: -5rem;
+  display: flex;
+}
+
+.not-df {
+  width: 52%;
+  height: 20rem;
+}
+
+.border-country {
+  margin: 0.25rem 0 0 1.5rem;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .detail-page {
+    padding: 1rem;
+    padding-bottom: 50rem !important;
+    width: 100%;
+    height: 100%;
+
+    &-country-img {
+      width: 100%;
+      height: 15rem;
+    }
+
+    &-flex {
+      display: block;
+    }
+  }
+
+  .country-info-box {
+    display: block;
+  }
+
+  .not-df {
+    width: 100%;
+  }
+
+  .information-plus {
+    margin-top: 1rem !important;
+    margin: 0;
+  }
+
+  .border-countries {
+    margin: 0;
+    margin-top: -4rem !important;
+  }
+
+  .icon-filter {
+    margin-top: 0.8rem;
+  }
 }

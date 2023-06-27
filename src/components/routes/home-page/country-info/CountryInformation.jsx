@@ -25,28 +25,38 @@ const CountryInformation = ({ searchString, option, mode }) => {
     Oceania: [],
   };
 
-  regions.Africa.push(...
-    countries.filter((country) => country.region === "Africa")
+  regions.Africa.push(
+    ...countries.filter((country) => country.region === "Africa")
   );
-  regions.Americas.push(...
-    countries.filter((country) => country.region === "Americas")
+  regions.Americas.push(
+    ...countries.filter((country) => country.region === "Americas")
   );
-  regions.Asia.push(...countries.filter((country) => country.region === "Asia"));
-  regions.Europe.push(...
-    countries.filter((country) => country.region === "Europe")
+  regions.Asia.push(
+    ...countries.filter((country) => country.region === "Asia")
   );
-  regions.Oceania.push(...
-    countries.filter((country) => country.region === "Oceania")
+  regions.Europe.push(
+    ...countries.filter((country) => country.region === "Europe")
+  );
+  regions.Oceania.push(
+    ...countries.filter((country) => country.region === "Oceania")
   );
 
   return (
     <div className="main-country-box">
       {option !== "All"
         ? regions[option].map((country) => (
-            <CountryBox key={country.name.common} country={country} mode={mode} />
+            <CountryBox
+              key={country.name.common}
+              country={country}
+              mode={mode}
+            />
           ))
         : searchedCountry.map((country) => (
-            <CountryBox key={country.name.common} country={country} mode={mode} />
+            <CountryBox
+              key={country.name.common}
+              country={country}
+              mode={mode}
+            />
           ))}
     </div>
   );

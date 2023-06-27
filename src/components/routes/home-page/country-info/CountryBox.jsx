@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import DetailCountry from '../../detail-page/DetailCountry';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import DetailCountry from "../../detail-page/DetailCountry";
 
 const CountryBox = ({ country, mode }) => {
   const countryInfor = {
@@ -22,11 +22,10 @@ const CountryBox = ({ country, mode }) => {
   return (
     <div className="country-box">
       <Link
-        to="/detail-country"
+        to={`${country.name.common}`}
         className={`country-link-box ${
-          appMode === darkMode ? 'dark-mode-for-any-box' : ''
+          appMode === darkMode ? "dark-mode-for-any-box" : ""
         }`.trim()}
-        onClick={onClicked}
       >
         <img
           src={countryInfor.flag}
@@ -48,7 +47,7 @@ const CountryBox = ({ country, mode }) => {
             className="country-box-country-info"
             data-country-box={countryInfor.countryName}
           >
-            Population:{' '}
+            Population:{" "}
             <span
               className="country-box-country-info-info"
               data-country-box={countryInfor.countryName}
@@ -60,7 +59,7 @@ const CountryBox = ({ country, mode }) => {
             className="country-box-country-info"
             data-country-box={countryInfor.countryName}
           >
-            Region:{' '}
+            Region:{" "}
             <span
               className="country-box-country-info-info"
               data-country-box={countryInfor.countryName}
@@ -72,7 +71,7 @@ const CountryBox = ({ country, mode }) => {
             className="country-box-country-info"
             data-country-box={countryInfor.countryName}
           >
-            Capital:{' '}
+            Capital:{" "}
             <span
               className="country-box-country-info-info"
               data-country-box={countryInfor.countryName}
