@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Navigation from "./components/routes/home-page/Navigation";
+import DetailCountry from "./components/routes/detail-page/DetailCountry";
+import SearchBox from "./components/routes/home-page/search-box/SearchBox";
+import { useState } from "react";
+
+const lightMode = ["fa fa-moon light-mode", "Dark Mode"];
+const darkMode = ["fa fa-sun dark-mode", "Light Mode"];
 
 function App() {
+
+  const [appMode, setAppMode] = useState(lightMode);
+  
+  const onChangeMode = () => {
+    if (appMode === lightMode) {
+      setAppMode(darkMode);
+    } else {
+      setAppMode(lightMode);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigation mode={{appMode, darkMode, onChangeMode}} />}>
+        <Route index element={<SearchBox mode={{appMode, darkMode, onChangeMode}} />} />
+        <Route path="/detail-country" element={<DetailCountry mode={{appMode, darkMode, onChangeMode}} />} />
+      </Route>
+    </Routes>
   );
 }
 
