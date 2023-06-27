@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import DetailCountry from "../../detail-page/DetailCountry";
 
 const CountryBox = ({ country, mode }) => {
   const countryInfor = {
@@ -12,12 +10,6 @@ const CountryBox = ({ country, mode }) => {
   };
 
   const { appMode, darkMode } = mode;
-
-  const onClicked = (e) => {
-    if (country.name.common === e.target.dataset.countryBox) {
-      <DetailCountry country={country} mode={mode} />;
-    }
-  };
 
   return (
     <div className="country-box">
